@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.eviron.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
@@ -78,13 +78,13 @@ FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
 
 
-MAILCHIMP_API_KEY           = os.eviron.get('MAILCHIMP_API_KEY')
-MAILCHIMP_DATA_CENTER       = os.eviron.get('MAILCHIMP_DATA_CENTER')
-MAILCHIMP_EMAIL_LIST_ID     = os.eviron.get('MAILCHIMP_EMAIL_LIST_ID')
+MAILCHIMP_API_KEY           = os.environ.get('MAILCHIMP_API_KEY')
+MAILCHIMP_DATA_CENTER       = os.environ.get('MAILCHIMP_DATA_CENTER')
+MAILCHIMP_EMAIL_LIST_ID     = os.environ.get('MAILCHIMP_EMAIL_LIST_ID')
 
-STRIPE_SECRET_KEY = os.eviron.get("STRIPE_SECRET_KEY","sk_test_ftmWBmegu5uTBT1BGN6GTy4t00NCATGFGO")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY","sk_test_ftmWBmegu5uTBT1BGN6GTy4t00NCATGFGO")
 
-STRIPE_PUB_KEY = os.eviron.get("STRIPE_PUB_KEY",'pk_test_ZQgbt1IdQV0Pq6bV4fZvKxky002rNWU4gr')
+STRIPE_PUB_KEY = os.environ.get("STRIPE_PUB_KEY",'pk_test_ZQgbt1IdQV0Pq6bV4fZvKxky002rNWU4gr')
 
 
 
