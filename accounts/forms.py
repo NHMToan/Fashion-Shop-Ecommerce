@@ -74,9 +74,29 @@ class UserAdminChangeForm(forms.ModelForm):
         # field does not have access to the initial value
         return self.initial["password"]
 
-class GuestForm(forms.Form):
-	email 	= forms.EmailField(label='Email', widget=forms.TextInput(attrs={"class":'form-control', "placeholder":"Email"}))
-    
+# class GuestForm(forms.Form):
+# 	email 	= forms.EmailField(label='Email', widget=forms.TextInput(attrs={"class":'form-control', "placeholder":"Email"}))
+
+class GuestForm(forms.ModelForm):
+    #email    = forms.EmailField()
+    class Meta:
+        model = GuestEmail
+        fields = [
+            'email'
+        ]
+
+    def __init__(self, request, *args, **kwargs):
+        self.request = request
+        super(GuestForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        # Save the provided password in hashed format
+        obj = super(GuestForm, self).save(commit=False)
+        if commit:
+            obj.save()
+            request = self.request
+            request.session['guest_email_id'] = obj.id
+        return obj
 
     
 
