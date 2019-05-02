@@ -22,8 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'nv9yy^idy*-=ne5zyx8xtwignaq746pq(qddwz8kfj0!e@5_x3'
 
-#ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
-
+# ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
+ALLOWED_HOSTS = ['.herokapp.com']
 #EMAIL_HOST = 'smtp.gmail.com'
 #EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
 #EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD','yourpassword')
@@ -38,7 +38,7 @@ SECRET_KEY = 'nv9yy^idy*-=ne5zyx8xtwignaq746pq(qddwz8kfj0!e@5_x3'
 # ADMINS = MANAGERS
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
