@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 # MANAGERS = (
 #     ('TU DO',"nguyenhuynhminhtoan96@gmail.com")
 #     )
-# ADMINS = MANAGERS
+ADMINS = MANAGERS
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
