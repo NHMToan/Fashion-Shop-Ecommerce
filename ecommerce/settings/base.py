@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    #third party
+    'storages',
     #our app
     'accounts',
     'addresses',
@@ -189,3 +190,8 @@ CSRF_COOKIE_SECURE              = False
 SECURE_HSTS_SECONDS             = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
 SECURE_FRAME_DENY               = False
+
+AWS_GROUP_NAME = "tudo-ecommerce-group"
+AWS_USERNAME = "tudo-ecommerce-user"
+AWS_ACCESS_KEY_ID = "AKIAVHW2MS7PFNXB3QVZ"
+AWS_SECRET_KEY = "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"
