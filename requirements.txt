@@ -1,5 +1,6 @@
 asn1crypto==0.24.0
 certifi==2019.3.9
+cfe==0.0.15
 cffi==1.12.2
 chardet==3.0.4
 cryptography==2.6.1
@@ -11,10 +12,12 @@ gunicorn==19.9.0
 idna==2.8
 ipaddress==1.0.22
 Pillow==5.4.1
+psycopg2-binary==2.8.2
 pycparser==2.19
 pyOpenSSL==19.0.0
 pytz==2018.9
 requests==2.21.0
 six==1.12.0
+sqlparse==0.3.0
 stripe==2.24.0
 urllib3==1.24.1
