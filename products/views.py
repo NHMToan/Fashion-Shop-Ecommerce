@@ -66,7 +66,7 @@ def product_list_view(request):
 
 
 
-class ProductDetailSlugView(ObjectViewedMixin, DetailView):
+class ProductDetailSlugView(DetailView):
 	queryset =	Product.objects.all()
 	template_name = "products/detail.html"
 
