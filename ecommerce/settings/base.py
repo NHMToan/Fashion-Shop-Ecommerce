@@ -23,7 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'nv9yy^idy*-=ne5zyx8xtwignaq746pq(qddwz8kfj0!e@5_x3'
 
 #ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
-ALLOWED_HOSTS = ['tudo-ecommerce.herokapp.com','0.0.0.0','127.0.0.1']
+
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 #EMAIL_HOST = 'smtp.gmail.com'
 #EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
@@ -39,7 +42,7 @@ ALLOWED_HOSTS = ['tudo-ecommerce.herokapp.com','0.0.0.0','127.0.0.1']
 # ADMINS = MANAGERS
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 
 
