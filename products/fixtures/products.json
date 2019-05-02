@@ -1,0 +1,44 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "T-Shirt",
+        "slug": "t-shirt",
+        "description": "This is an awesome Shirt . Buy it",
+        "price": "39.99",
+        "image": "products/83251624/83251624.jpeg",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-04-03T04:14:11.210Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Computer",
+        "slug": "computer",
+        "description": "Super computer",
+        "price": "99.99",
+        "image": "",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-04-03T04:14:11.210Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "T-Shirt",
+        "slug": "t-shirt-6c27",
+        "description": "another t shirt",
+        "price": "40.99",
+        "image": "",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-04-03T04:14:11.210Z"
+    }
+}
+]
