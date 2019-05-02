@@ -28,18 +28,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
-#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD','yourpassword')
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = 'Python ecommerce <nguyenhuynhminhtoan96@gmail.com'
-#BASE_URL = '127.0.0.1:8000'
 
-# MANAGERS = (
-#     ('TU DO',"nguyenhuynhminhtoan96@gmail.com")
-#     )
-# ADMINS = MANAGERS
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Python ecommerce <nguyenhuynhminhtoan96@gmail.com'
+BASE_URL = '127.0.0.1:8000'
+
+MANAGERS = (
+    ('TU DO',"nguyenhuynhminhtoan96@gmail.com")
+    )
+ADMINS = MANAGERS
 
 # SECURITY WARNING: don't run with debug turned on in production!
 

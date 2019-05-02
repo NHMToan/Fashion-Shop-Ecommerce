@@ -21,7 +21,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY','0ypk!t!en_*79i-pvs0&#ni=f50r82eyrrw@l%7-)@0vt$b9=$')
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Python ecommerce <nguyenhuynhminhtoan96@gmail.com'
+BASE_URL = '127.0.0.1:8000'
+
+MANAGERS = (
+    ('TU DO',"nguyenhuynhminhtoan96@gmail.com")
+    )
+ADMINS = MANAGERS
 
 # ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
 ALLOWED_HOSTS = ['.herokuapp.com']
