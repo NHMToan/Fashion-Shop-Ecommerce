@@ -25,7 +25,7 @@ SECRET_KEY = 'nv9yy^idy*-=ne5zyx8xtwignaq746pq(qddwz8kfj0!e@5_x3'
 #ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['tudo-ecommerce.herokuapp.com','.herokuapp.com','0.0.0.0', '127.0.0.1']
 
 #EMAIL_HOST = 'smtp.gmail.com'
 #EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
