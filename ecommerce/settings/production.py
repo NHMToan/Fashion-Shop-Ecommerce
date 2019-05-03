@@ -51,7 +51,7 @@ ALLOWED_HOSTS = ['tudo-ecommerce.herokuapp.com','.herokuapp.com']
 # ADMINS = MANAGERS
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
@@ -116,7 +116,7 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -195,7 +195,7 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_cdn','media_root')
 
 PROTECTED_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_cdn','protected_root')
 
-# from ecommerce.aws.conf import *
+from ecommerce.aws.conf import *
 
 CORS_REPLACE_HTTPS_REFERER      = True
 HOST_SCHEME                     = "https://"
