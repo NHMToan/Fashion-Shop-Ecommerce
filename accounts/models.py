@@ -98,9 +98,9 @@ class EmailActivationQuerySet(models.query.QuerySet):
 		end_range = now
 		return self.filter(
 				activated = False,
-				forced_expired = True
+				forced_expired = False
 			).filter(
-				timestamp__gt = start_range,
+				timestamp__gt=start_range,
 				timestamp__lte=end_range
 			)
 
