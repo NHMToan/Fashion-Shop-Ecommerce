@@ -11,13 +11,13 @@ def home_page(request):
 	#cart_obj, new_obj = Cart.objects.new_or_get(self.request)
 	queryset = Product.objects.all()
 	product_sale = Product.objects.filter(product_status='sale').first()
-	product_sale_price = product_sale.price - 10
+	product_before_sale_price = product_sale.price + 10
 	cart_obj, new_obj = Cart.objects.new_or_get(request)
 	context={
 		"title":"Hello World!",
 		'object_list': queryset,
 		'product_sale':product_sale,
-		'product_sale_price':product_sale_price,
+		'product_before_sale_price':product_before_sale_price,
 		'cart':cart_obj
 	}
 	return render(request,"home_page.html",context)

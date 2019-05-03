@@ -126,10 +126,10 @@ $(document).ready(function(){
 						var newCartItemRemove = hiddenCartItemRemoveForm.clone()
 						newCartItemRemove.css("display","block")
 						newCartItemRemove.find(".cart-item-product-id").val(value.id)
-						cartBody.prepend("<tr><th scope=\"row\">"+ i +"</th><td><a href='"+ value.url +"'>" + value.name + "</a>" + newCartItemRemove.html()+ "</td><td>"+ value.price+"</td></tr>")
+						cartBody.prepend("<tr><th scope=\"row\">"+ i +"</th><td><img src='"+value.image+"' height='100' width='100'></td><td><a href='"+ value.url +"'>" + value.name + "</a>" + newCartItemRemove.html()+ "</td><td>"+ value.price+"</td></tr>")
 						i --
 					})
-					
+
 					cartBody.find(".cart-subtotal").text(data.subtotal)
 					cartBody.find(".cart-total").text(data.total)
 				}else{

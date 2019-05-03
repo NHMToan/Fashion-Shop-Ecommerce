@@ -8,6 +8,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Image</th>
       <th scope="col">Product Name</th>
       <th scope="col">Product Price</th>
     </tr>
@@ -16,6 +17,8 @@
   	{% for product in cart.products.all %}
 	    <tr class='cart-product'>
 	      <th scope="row">{{ forloop.counter }}</th>
+        <td>
+        <img src='{{product.image.url}}' height="100" width="100"></td>
 	      <td><a href='{{ product.get_absolute_url }}'>{{product.title}}</a>
 	      	{% include 'carts/snippets/remove-product.html' with product_id=product.id %}
 	  	</td>

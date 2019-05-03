@@ -213,11 +213,11 @@
 								</a>
 								{% if obj.product_status == 'sale' %}
 								<span class="block2-oldprice m-text7 p-r-5">
-									${{ obj.price }}
+									${{ obj.price|add:10 }}
 								</span>
 
 								<span class="block2-newprice m-text8">
-									${{ obj.price|add:-10 }}
+									${{ obj.price }}
 								</span>
 								{% else %}
 								<span class="block2-price m-text6 p-r-5">
@@ -269,11 +269,11 @@
 								</a>
 
 								<span class="block2-oldprice m-text7 p-r-5">
-									${{ product_sale.price }}
+									${{ product_before_sale_price }}
 								</span>
 
 								<span class="block2-newprice m-text8">
-									${{product_sale_price}}
+									${{ product_sale.price }}
 								</span>
 							</div>
 							<div class="row">
