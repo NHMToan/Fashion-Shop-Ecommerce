@@ -11,12 +11,14 @@ def home_page(request):
 	#cart_obj, new_obj = Cart.objects.new_or_get(self.request)
 	queryset = Product.objects.all()
 	product_sale = Product.objects.filter(product_status='sale').first()
-	product_sale_price = (product_sale.price * 50)/100
+	product_sale_price = product_sale.price - 10
+	cart_obj, new_obj = Cart.objects.new_or_get(request)
 	context={
 		"title":"Hello World!",
 		'object_list': queryset,
 		'product_sale':product_sale,
-		'product_sale_price':product_sale_price
+		'product_sale_price':product_sale_price,
+		'cart':cart_obj
 	}
 	return render(request,"home_page.html",context)
 
@@ -28,10 +30,13 @@ def about_page(request):
 	return render(request,"home_page.html",context)
 
 def contact_page(request):
+
 	contact_form = ContactForm(request.POST or None)
+	cart_obj, new_obj = Cart.objects.new_or_get(request)
 	context={
 		"title":"Contact Page",
-		"form": contact_form
+		"form": contact_form,
+		"cart": cart_obj
 	}
 	if contact_form.is_valid():
 		if request.is_ajax():

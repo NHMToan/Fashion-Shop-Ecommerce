@@ -129,11 +129,12 @@ $(document).ready(function(){
 						cartBody.prepend("<tr><th scope=\"row\">"+ i +"</th><td><a href='"+ value.url +"'>" + value.name + "</a>" + newCartItemRemove.html()+ "</td><td>"+ value.price+"</td></tr>")
 						i --
 					})
+					
+					cartBody.find(".cart-subtotal").text(data.subtotal)
+					cartBody.find(".cart-total").text(data.total)
 				}else{
 					window.location.href = currentUrl
 				}
-				cartBody.find(".cart-subtotal").text(data.subtotal)
-				cartBody.find(".cart-total").text(data.total)
 			},
 			error: function(errorData){
 				$.alert({
