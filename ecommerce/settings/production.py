@@ -36,7 +36,7 @@ MANAGERS = (
 ADMINS = MANAGERS
 
 # ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['tudo-ecommerce.herokuapp.com','.herokuapp.com']
 #EMAIL_HOST = 'smtp.gmail.com'
 #EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
 #EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD','yourpassword')
