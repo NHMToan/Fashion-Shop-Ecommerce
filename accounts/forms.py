@@ -119,7 +119,7 @@ class LoginForm(forms.Form):
 			if not_active.exists():
 				link = reverse("account:resend-activation")
 				reconfirm_msg = """
-				<a href="{resend_link}"> Resend confirmation email</a>
+				<a href='{resend_link}'> Resend confirmation email</a>
 				""".format(resend_link = link)
 				confirm_email = EmailActivation.objects.filter(email=email)
 				is_confirmable = confirm_email.confirmable().exists()
