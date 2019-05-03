@@ -51,7 +51,7 @@ ALLOWED_HOSTS = ['tudo-ecommerce.herokuapp.com','.herokuapp.com']
 # ADMINS = MANAGERS
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
