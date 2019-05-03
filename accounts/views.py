@@ -74,6 +74,7 @@ class AccountActivateView(FormMixin,View):
 		new_activation = EmailActivation.objects.create(user=user,email=email)
 		new_activation.send_activation()
 		return super(AccountActivateView,self).form_valid(form)
+		
 
 	def form_invalid(self,form):
 		context = {'form':form ,'key':self.key}
