@@ -29,7 +29,7 @@ class AccountHomeView(LoginRequiredMixin,DetailView):
 
 
 class AccountActivateView(FormMixin,View):
-	success_url = '/'
+	success_url = '/login/'
 	form_class = ReactivateEmailForm
 	key = None
 	def get(self,request,key=None,*args,**kwargs):
@@ -38,7 +38,7 @@ class AccountActivateView(FormMixin,View):
 			qs = EmailActivation.objects.filter(key__iexact=key)
 			confirm_qs = qs.confirmable()
 			if confirm_qs.count() == 1:
-				obj = qs.first()
+				obj = confirm_qs.first()
 				obj.activate()
 				messages.success(request,"Your email has been confirmed. Please login. ")
 				return redirect("login")
@@ -46,8 +46,10 @@ class AccountActivateView(FormMixin,View):
 				activated_qs = qs.filter( activated=True)
 				if activated_qs.exists():
 					reset_link = reverse("password_reset")	
-					msg = "Your email has already been confirmed !"
-					messages.success(request,msg)
+					msg = """Your email has already been confirmed
+                    Do you need to <a href="{link}">reset your password</a>?
+                    """.format(link=reset_link)
+					messages.success(request, mark_safe(msg))
 					return redirect("login")
 		context = {
 			'form': self.get_form(),
@@ -68,13 +70,13 @@ class AccountActivateView(FormMixin,View):
 		messages.success(request,msg)
 		email = form.cleaned_data.get("email")
 		obj = EmailActivation.objects.email_exists(email).first()
-		user = obj.user_logged_in
-		EmailActivation.objects.create(user=user,email=email)
+		user = obj.user
+		new_activation = EmailActivation.objects.create(user=user,email=email)
 		new_activation.send_activation()
 		return super(AccountActivateView,self).form_valid(form)
 
 	def form_invalid(self,form):
-		context = {"form":form,"key":self.key}
+		context = {'form':form ,'key':self.key}
 		return render(self.request,'registration/activation-error.html',context)
 
 
@@ -82,20 +84,16 @@ class AccountActivateView(FormMixin,View):
 
 
 
-class GuestRegisterView(NextUrlMixin, FormView):
+class GuestRegisterView(NextUrlMixin,RequestFormAttachMixin, FormView):
 	form_class = GuestForm
 	default_next = '/register/'
 
-	def form_invalid(self,form):
+	def get_success_url(self):
+		return self.get_next_url()
+
+
+	def form_invalid(self, form):
 		return redirect(self.default_next)
-
-
-	def form_valid(self, form):
-		request = self.request
-		email = form.cleaned_data.get("email")
-		new_guest_email = GuestEmail.objects.create(email=email)
-		request.session['guest_email_id'] = new_guest_email.id
-		return redirect(self.get_next_url())
 
 
 class LoginView(NextUrlMixin, RequestFormAttachMixin, FormView):
@@ -116,7 +114,7 @@ class RegisterView(CreateView):
 	success_url = '/login/'
 
 
-User = get_user_model()
+# User = get_user_model()
 
 
 class UserDetailUpdateView(LoginRequiredMixin,UpdateView):
