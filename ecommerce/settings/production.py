@@ -24,11 +24,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY','0ypk!t!en_*79i-pvs0&#ni=f50r82eyrrw@l%
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD',"Annguy9511")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Python ecommerce <nguyenhuynhminhtoan96@gmail.com'
-BASE_URL = '127.0.0.1:8000'
+DEFAULT_FROM_EMAIL = 'TUDO Shop <nguyenhuynhminhtoan96@gmail.com>'
+BASE_URL = 'https://tudo-ecommerce.herokuapp.com'
 
 MANAGERS = (
     ('TU DO',"nguyenhuynhminhtoan96@gmail.com")
