@@ -84,6 +84,9 @@ class GuestForm(forms.ModelForm):
         fields = [
             'email'
         ]
+        widgets = {
+            'email': forms.TextInput(attrs={"class":'form-control', "placeholder":"Email", "style":"border: 1px solid gray !important"})
+        }
 
     def __init__(self, request, *args, **kwargs):
         self.request = request
@@ -101,8 +104,8 @@ class GuestForm(forms.ModelForm):
     
 
 class LoginForm(forms.Form):
-	email = forms.EmailField(label='Email', widget=forms.TextInput(attrs={"class":'form-control', "placeholder":"Email", "style":"border: 1px solid black !important"}))
-	password = forms.CharField(widget=forms.PasswordInput(attrs={"class":'form-control', "placeholder":"Your password", "style":"border: 1px solid black !important"}))
+	email = forms.EmailField(label='Email', widget=forms.TextInput(attrs={"class":'form-control', "placeholder":"Email", "style":"border: 1px solid gray !important"}))
+	password = forms.CharField(widget=forms.PasswordInput(attrs={"class":'form-control', "placeholder":"Your password", "style":"border: 1px solid gray !important"}))
 	
 	def __init__(self, request,*args,**kwargs):
 		self.request = request
@@ -147,15 +150,15 @@ class RegisterForm(forms.ModelForm):
 
     # email = forms.EmailField(label='Email', widget=forms.TextInput(attrs={"class":'form-control', "placeholder":"Email"}))
     # full_name = forms.CharField(label='Name', required=False, widget=forms.TextInput(attrs={"class":'form-control', "placeholder":"Full name"}))
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password'}))
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password Confirmation'}))
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password', "style":"border: 1px solid gray !important"}))
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password Confirmation', "style":"border: 1px solid gray !important"}))
 
     class Meta:
         model = User
         fields = ('full_name','email')
         widgets = {
-            'full_name': forms.TextInput(attrs={"class":'form-control', "placeholder":"Full name"}),
-            'email': forms.TextInput(attrs={"class":'form-control', "placeholder":"Email"})
+            'full_name': forms.TextInput(attrs={"class":'form-control', "placeholder":"Full name", "style":"border: 1px solid gray !important"}),
+            'email': forms.TextInput(attrs={"class":'form-control', "placeholder":"Email", "style":"border: 1px solid gray !important"})
         }
         labels = {
             'full_name': 'Name',

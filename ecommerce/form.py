@@ -8,14 +8,17 @@ class ContactForm(forms.Form):
 	fullname = forms.CharField(
 				widget=forms.TextInput(
 					attrs={
-					"class":'form-control',"placeholder":"Full Name"
+					"class":'form-control',"placeholder":"Full Name",
+					"style":"border: 1px solid gray !important"
+
 					}
 					)
 				)
 	email = forms.EmailField(
 				widget=forms.EmailInput(
 					attrs={
-					"class":'form-control',"placeholder":"Your Email"
+					"class":'form-control',"placeholder":"Your Email",
+					"style":"border: 1px solid gray !important"
 					}
 					)
 				)

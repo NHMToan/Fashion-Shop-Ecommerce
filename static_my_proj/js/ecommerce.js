@@ -84,6 +84,15 @@ $(document).ready(function(){
 				}
 				var navbarCount	= $(".header-icons-noti")
 				navbarCount.text(data.cartItemCount)
+
+				var subcartTable = $(".sub-cart-table")
+				var subcartBody = subcartTable.find(".sub-cart-body")
+				var subproductRows = subcartBody.find(".sub-cart-product")
+				$.each(data.products, function(index,value){
+					subproductRows
+						subcartBody.prepend("<li class='header-cart-item'><div class='header-cart-item-img'><img src='"+ value.image +"'  alt='IMG'></div><div class='header-cart-item-txt'><a href='"+value.url+"'class='header-cart-item-name'>"+value.name+"</a><span class='header-cart-item-info'>"+value.price+"</span></div></li>")
+					})
+
 				var currentPath = window.location.href
 				if(currentPath.indexOf("cart") != -1){
 					refreshCart()
