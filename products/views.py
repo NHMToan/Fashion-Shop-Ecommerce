@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from analytics.mixins import ObjectViewedMixin
 from carts.models import Cart
 from django.contrib.contenttypes.models import ContentType
+from django.core.paginator import Paginator
 
 from .models import Product
 
@@ -43,7 +44,7 @@ class UserProductHistoryView(LoginRequiredMixin,ListView):
 
 
 class ProductListView(ListView):
-	queryset =	Product.objects.all()
+	# queryset =	Product.objects.all()
 	template_name = "products/list.html"
 
 	def get_context_data(self, *args,**kwargs):
@@ -54,13 +55,21 @@ class ProductListView(ListView):
 
 	def get_queryset(self,*args,**kwargs):
 		request = self.request
-		return Product.objects.all()
+		queryset =	Product.objects.all()
+		paginator = Paginator(queryset, 3)
+		page = request.GET.get('page')
+		qs = paginator.page(page)
+		return qs
 
 
 def product_list_view(request):
-	queryset	=	Product.objects.all()
-	context  ={
-		'object_list': queryset
+	queryset =	Product.objects.all()
+	p = Paginator(queryset, 4)
+	page = request.GET.get('page')
+	qs = p.page(page)
+	print(qs.count)
+	context  = {
+		'object_list': qs
 	}
 	return render(request,"products/list.html",context)
 

@@ -147,7 +147,7 @@
 						</div>
 
 						<span class="s-text8 p-t-5 p-b-5">
-							Showing 1–12 of {{object_list.length}} results
+							Showing 3 of {{object_list.paginator.count }} results
 						</span>
 					</div>
 
@@ -191,8 +191,23 @@
 
 	<!-- Pagination -->
 					<div class="pagination flex-m flex-w p-t-26">
-						<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+						{% if object_list.has_previous %}
+						<a href="?page=1" class="item-pagination flex-c-m trans-0-4"><<</a>
+						<a href="?page={{object_list.previous_page_number}}" class="item-pagination flex-c-m trans-0-4"><</a>
+						{% endif%}
+						{% for num in object_list.paginator.page_range %}
+						{% if object_list.number == num %}
+						<a href="?page={{num}}" class="item-pagination flex-c-m trans-0-4 active-pagination">{{num}}</a>
+						{% elif num > object_list.number|add:'-3' and num < object_list.number|add:'3' %}
+						<a href="?page={{num}}" class="item-pagination flex-c-m trans-0-4">{{num}}</a>
+						{% endif %}
+						{% endfor %}
+
+						{% if object_list.has_next %}
+						<a href="?page={{object_list.next_page_number}}" class="item-pagination flex-c-m trans-0-4">></a>
+						<a href="?page={{object_list.num_pages}}" class="item-pagination flex-c-m trans-0-4">>></a>
+						{% endif%}
+
 					</div>
 				</div>
 			</div>

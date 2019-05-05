@@ -101,8 +101,8 @@ class GuestForm(forms.ModelForm):
     
 
 class LoginForm(forms.Form):
-	email = forms.EmailField(label='Email', widget=forms.TextInput(attrs={"class":'form-control', "placeholder":"Email"}))
-	password = forms.CharField(widget=forms.PasswordInput(attrs={"class":'form-control', "placeholder":"Your password"}))
+	email = forms.EmailField(label='Email', widget=forms.TextInput(attrs={"class":'form-control', "placeholder":"Email", "style":"border: 1px solid black !important"}))
+	password = forms.CharField(widget=forms.PasswordInput(attrs={"class":'form-control', "placeholder":"Your password", "style":"border: 1px solid black !important"}))
 	
 	def __init__(self, request,*args,**kwargs):
 		self.request = request
