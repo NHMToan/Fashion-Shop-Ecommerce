@@ -179,10 +179,19 @@
 					<a href="{{ obj.get_absolute_url }}" class="block2-name dis-block s-text3 p-b-5">
 						{{obj.title}}
 					</a>
+					{% if obj.product_status == 'sale' %}
+								<span class="block2-oldprice m-text7 p-r-5">
+									${{ obj.price|add:10 }}
+								</span>
 
-					<span class="block2-price m-text6 p-r-5">
-						$ {{obj.price}}
-					</span>
+								<span class="block2-newprice m-text8">
+									${{ obj.price }}
+								</span>
+								{% else %}
+								<span class="block2-price m-text6 p-r-5">
+									$ {{obj.price}}
+								</span>
+					{% endif %}
 				</div>
 			</div>
 		</div>
