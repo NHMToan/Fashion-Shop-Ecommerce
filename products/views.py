@@ -8,8 +8,8 @@ from carts.models import Cart
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 
-from .models import Product
-
+from .models import Product, ProductView
+from .forms import CommentForm
 
 
 class ProductFeaturedListView(ListView):
@@ -102,10 +102,12 @@ class ProductDetailSlugView(ObjectViewedMixin,DetailView):
 class ProductDetailView(ObjectViewedMixin,DetailView):
 	#queryset =	Product.objects.all()
 	template_name = "products/detail.html"
+	form = CommentForm()
 
 	def get_context_data(self,	*args,	**kwargs):
 		context = super(ProductDetailView,self).get_context_data(*args,**kwargs)
 		print(context)
+		context['form'] = self.form
 		return context
 
 
@@ -117,13 +119,35 @@ class ProductDetailView(ObjectViewedMixin,DetailView):
 			raise Http404("Product does not exist")
 		return instance
 
+	def product(self, request, *args, **kwargs):
+		form = CommentForm(request.POST)
+		if form.is_valid():
+			product = self.get_object()
+			form.instance.user = request.user
+			form.instance.product = product
+			form.save()
+			return redirect(reverse("products", kwargs={
+			'pk': product.pk
+			}))
+
 
 def product_detail_view(request, pk=None, *args, **kwargs):
 	instance = Product.objects.get_by_id(pk)
 	if instance is None:
 		raise Http404("Product does not exist")
 
+
+	form = CommentForm(request.POST or None)
+	if request.method == "POST":
+		if form.is_valid():
+			form.instance.user = request.user
+			form.instance.product = instance
+			form.save()
+			return redirect(reverse("products", kwargs={
+			'id': instance.pk
+			}))
 	context  ={
-		'object': instance
+		'object': instance,
+		'form': form
 	}
 	return render(request,"products/detail.html",context)

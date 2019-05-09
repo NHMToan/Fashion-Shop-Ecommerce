@@ -10,6 +10,8 @@ from django.db.models.signals import pre_save,post_save
 from django.urls import reverse
 
 from ecommerce.utils import unique_slug_generator
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 
@@ -25,6 +27,12 @@ PRODUCT_STATUS = (
 		('sale','Sale'),
 	)
 
+class ProductView(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.email
 
 def get_filename_ext(filename):
 	base_name = os.path.basename(filename)
@@ -55,6 +63,15 @@ class ProductQuerySet(models.query.QuerySet):
 
 		# Q(tas__name__icontains=query)
 		return self.filter(lookups).distinct()
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
+    product = models.ForeignKey('Product', related_name='comments', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.email
 
 class ProductManager(models.Manager):
 	def get_queryset(self):
@@ -104,6 +121,12 @@ class Product(models.Model):
 	@property
 	def name(self):
 		return self.title
+	@property
+	def get_comments(self):
+		return self.comments.all().order_by('-timestamp')
+	@property
+	def comment_count(self):
+		return Comment.objects.filter(product=self).count()
 	
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):
