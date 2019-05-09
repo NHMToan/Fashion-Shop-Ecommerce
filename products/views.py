@@ -97,7 +97,6 @@ class ProductDetailSlugView(ObjectViewedMixin,DetailView):
 			instance = qs.first()
 		except:
 			raise Http404("OK")
-		# object_viewed_signal.send(instance.__class__,instance=instance,request=request)
 		return instance
 
 class ProductDetailView(ObjectViewedMixin,DetailView):
@@ -118,32 +117,12 @@ class ProductDetailView(ObjectViewedMixin,DetailView):
 			raise Http404("Product does not exist")
 		return instance
 
-	# def get_queryset(self, *args, **kwargs):
-	# 	request = self.request
-	# 	pk = self.kwargs.get('pk')
-	# 	return Product.objects.filter(pk=pk)
-
 
 def product_detail_view(request, pk=None, *args, **kwargs):
-	#instance = Product.objects.get(pk=pk)  #id
-	#instance = get_object_or_404(Product,pk=pk)
-	# try:
-	# 	instance = Product.objects.get(id=pk)
-	# except Product.DoesNotExist:
-	# 	print('no product here')
-	# 	raise Http404("Product does not exist")
-	# except:
-	# 	print('???')
-
 	instance = Product.objects.get_by_id(pk)
 	if instance is None:
 		raise Http404("Product does not exist")
-	# Dung len qs lookup
-	# qs  =  Product.objects.filter(id=pk)
-	# if qs.count() == 1:  # len(qs)
-	# 	instance = qs.first()
-	# else:
-	# 	raise Http404("Product does not exist")
+
 	context  ={
 		'object': instance
 	}

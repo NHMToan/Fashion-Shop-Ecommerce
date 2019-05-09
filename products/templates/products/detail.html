@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% block metadata %}
+<meta name="name" content="{{ object.title }}">
+<meta name="slug-title" content="{{ object.slug }}">
+<meta name="description" content="{{ object.description | force_escape |linebreaks}}">
+<meta name="slug-description" content="{{ object.description | force_escape |linebreaks | slugify}}">
+{% endblock %}
 {% block content %}
 
 
