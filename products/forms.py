@@ -8,7 +8,7 @@ class CommentForm(forms.ModelForm):
         'class': 'form-control',
         'placeholder': 'Type your comment',
         'id': 'usercomment',
-        'rows': '4'
+        'rows': '3'
     }))
     class Meta:
         model = Comment
