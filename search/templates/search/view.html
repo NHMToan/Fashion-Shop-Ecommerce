@@ -178,9 +178,9 @@
 						{{obj.title}}
 					</a>
 
-					{% if obj.product_status == 'sale' %}
+					{% if obj.before_discount_price %}
 								<span class="block2-oldprice m-text7 p-r-5">
-									${{ obj.price|add:10 }}
+									${{ obj.before_discount_price }}
 								</span>
 
 								<span class="block2-newprice m-text8">
@@ -190,7 +190,7 @@
 								<span class="block2-price m-text6 p-r-5">
 									$ {{obj.price}}
 								</span>
-					{% endif %}
+								{% endif %}
 				</div>
 			</div>
 		</div>

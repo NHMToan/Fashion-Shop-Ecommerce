@@ -47,9 +47,19 @@
 				<h4 class="product-detail-name m-text16 p-b-13">
 					{{ object.title }} : {{ object.timestamp | timesince }} ago<br/>
 				</h4>
-				<span class="m-text17">
-					 {{ object.price }}
-				</span>
+				{% if object.before_discount_price %}
+								<span class="block2-oldprice m-text7 p-r-5">
+									${{ object.before_discount_price }}
+								</span>
+
+								<span class="block2-newprice m-text8">
+									${{ object.price }}
+								</span>
+								{% else %}
+								<span class="block2-price m-text6 p-r-5">
+									$ {{object.price}}
+								</span>
+								{% endif %}
 
 				<p class="s-text8 p-t-10">
 					{{ object.description | linebreaks }}
