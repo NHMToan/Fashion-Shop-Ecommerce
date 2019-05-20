@@ -9,7 +9,7 @@
 
 				<div>
 					<p class="s-text7 w-size27">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						Any questions? Let us know in .... Ho Chi Minh city
 					</p>
 
 					<div class="flex-m p-t-30">
@@ -29,32 +29,42 @@
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Men
+						<a href="/products/?page=1"  class="s-text7">
+							All
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Women
+						<a href="/search/?q=top" class="s-text7">
+							Top
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Dresses
+						<a href="/search/?q=pants" class="s-text7">
+							Pants
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Sunglasses
+						<a href="/search/?q=accessory" class="s-text7">
+							Accessory
+						</a>
+					</li>
+					<li class="p-b-9">
+						<a href="/search/?q=hat" class="s-text7">
+							Hat
+						</a>
+					</li>
+					<li class="p-b-9">
+						<a href="/search/?q=footerwear" class="s-text7">
+							Footerwear
 						</a>
 					</li>
 				</ul>
 			</div>
 
-			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+<!-- 			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 				<h4 class="s-text12 p-b-30">
 					Links
 				</h4>
@@ -84,8 +94,8 @@
 						</a>
 					</li>
 				</ul>
-			</div>
-
+			</div> -->
+<!-- 
 			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 				<h4 class="s-text12 p-b-30">
 					Help
@@ -116,27 +126,40 @@
 						</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 
 			<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
 				<h4 class="s-text12 p-b-30">
 					Newsletter
 				</h4>
-
-				<form>
+				<p class="s-text7 w-size27">
+						Subsribe to get HOT promotions
+					</p>
+				{% if request.user.email %}
 					<div class="effect1 w-size9">
-						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="{{ request.user.email }}">
 						<span class="effect1-line"></span>
 					</div>
 
 					<div class="w-size2 p-t-20">
-						<!-- Button -->
-						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-							Subscribe
-						</button>
+						
+						<a href="/settings/email/" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Subscribe
+									</a>
 					</div>
-
-				</form>
+					{% else %}
+					
+					<div class="w-size2 p-t-20">
+					<a href="/login/?next=/settings/email" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Login
+									</a>
+								</div>
+					<div class="w-size2 p-t-20">
+					<a href="/register/" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Register
+									</a>
+					</div>
+				{% endif %}
 			</div>
 		</div>
 
