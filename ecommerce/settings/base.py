@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -22,8 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'nv9yy^idy*-=ne5zyx8xtwignaq746pq(qddwz8kfj0!e@5_x3'
 
-#ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
-
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -31,20 +30,18 @@ ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD',"Annguy9511")
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', "Annguy9511")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Python ecommerce <nguyenhuynhminhtoan96@gmail.com>'
 BASE_URL = '127.0.0.1:8000'
 
 MANAGERS = (
-    ('TU DO',"nguyenhuynhminhtoan96@gmail.com")
-    )
+    ('TU DO', "nguyenhuynhminhtoan96@gmail.com")
+)
 ADMINS = MANAGERS
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
-
 
 
 # Application definition
@@ -56,9 +53,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #third party
+    # third party
     'storages',
-    #our app
+    # our app
     'accounts',
     'addresses',
     'analytics',
@@ -71,7 +68,7 @@ INSTALLED_APPS = [
     'tags',
 ]
 
-AUTH_USER_MODEL = 'accounts.User' 
+AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_URL = '/login/'
 LOGIN_URL_REDIRECT = '/'
@@ -82,14 +79,13 @@ FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
 
 
-MAILCHIMP_API_KEY           = "2ba00c9df71f8447debc382184030513-us20"
-MAILCHIMP_DATA_CENTER       = 'us20'
-MAILCHIMP_EMAIL_LIST_ID     = 'a36d1f0434'
+MAILCHIMP_API_KEY = "2ba00c9df71f8447debc382184030513-us20"
+MAILCHIMP_DATA_CENTER = 'us20'
+MAILCHIMP_EMAIL_LIST_ID = 'a36d1f0434'
 
 STRIPE_SECRET_KEY = "sk_test_ftmWBmegu5uTBT1BGN6GTy4t00NCATGFGO"
 
 STRIPE_PUB_KEY = 'pk_test_ZQgbt1IdQV0Pq6bV4fZvKxky002rNWU4gr'
-
 
 
 MIDDLEWARE = [
@@ -174,23 +170,25 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static_my_proj'),
-    ]
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_cdn','static_root')
+    os.path.join(BASE_DIR, 'static_my_proj'),
+]
+STATIC_ROOT = os.path.join(os.path.dirname(
+    BASE_DIR), 'static_cdn', 'static_root')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_cdn','media_root')
+MEDIA_ROOT = os.path.join(os.path.dirname(
+    BASE_DIR), 'static_cdn', 'media_root')
 
 
-CORS_REPLACE_HTTPS_REFERER      = False
-HOST_SCHEME                     = "http://"
-SECURE_PROXY_SSL_HEADER         = None
-SECURE_SSL_REDIRECT             = False
-SESSION_COOKIE_SECURE           = False
-CSRF_COOKIE_SECURE              = False
-SECURE_HSTS_SECONDS             = None
-SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
-SECURE_FRAME_DENY               = False
+CORS_REPLACE_HTTPS_REFERER = False
+HOST_SCHEME = "http://"
+SECURE_PROXY_SSL_HEADER = None
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_HSTS_SECONDS = None
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_FRAME_DENY = False
 
 AWS_GROUP_NAME = "tudo-ecommerce-group"
 AWS_USERNAME = "tudo-ecommerce-user"
