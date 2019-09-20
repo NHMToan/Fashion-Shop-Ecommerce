@@ -124,4 +124,11 @@ ENV/
 # mypy
 .mypy_cache/
 
-.pyc
+
+**/*.pyc
+**/__pycache__
+db.sqlite3
+db2.sqlite3
+node_modules
+build
+package-lock.json
