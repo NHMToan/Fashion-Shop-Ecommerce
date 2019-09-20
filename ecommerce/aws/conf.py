@@ -3,11 +3,12 @@ import os
 
 AWS_GROUP_NAME = "tudo-ecommerce-group"
 AWS_USERNAME = "tudo-ecommerce-user"
-AWS_ACCESS_KEY_ID = "AKIAVHW2MS7PFNXB3QVZ"
-AWS_SECRET_ACCESS_KEY = "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"
+AWS_ACCESS_KEY_ID = "AWS_ACCESS_TEST_KEY_ID"
+AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_TEST_KEY/2NxQ"
 
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID","AKIAVHW2MS7PFNXB3QVZ")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY","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")
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "AKIAVHW2MS7PFNXB3QVZ")
+AWS_SECRET_ACCESS_KEY = os.environ.get(
+    "AWS_SECRET_ACCESS_KEY", "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")
 
 
 AWS_FILE_EXPIRE = 200
@@ -28,7 +29,7 @@ two_months = datetime.timedelta(days=61)
 date_two_months_later = datetime.date.today() + two_months
 expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
 
-AWS_HEADERS = { 
+AWS_HEADERS = {
     'Expires': expires,
     'Cache-Control': 'max-age=%d' % (int(two_months.total_seconds()), ),
 }

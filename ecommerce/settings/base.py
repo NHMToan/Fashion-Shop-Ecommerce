@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'nv9yy^idy*-=ne5zyx8xtwignaq746pq(qddwz8kfj0!e@5_x3'
+SECRET_KEY = 'SECRET_KEY'
 
 DEBUG = True
 
@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'nguyenhuynhminhtoan96@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', "Annguy9511")
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', "PASS")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Python ecommerce <nguyenhuynhminhtoan96@gmail.com>'
@@ -79,13 +79,13 @@ FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
 
 
-MAILCHIMP_API_KEY = "2ba00c9df71f8447debc382184030513-us20"
+MAILCHIMP_API_KEY = "MAILCHIMP_API_TEST_KEY-us20"
 MAILCHIMP_DATA_CENTER = 'us20'
 MAILCHIMP_EMAIL_LIST_ID = 'a36d1f0434'
 
-STRIPE_SECRET_KEY = "sk_test_ftmWBmegu5uTBT1BGN6GTy4t00NCATGFGO"
+STRIPE_SECRET_KEY = "STRIPE_SECRET_TEST_KEY"
 
-STRIPE_PUB_KEY = 'pk_test_ZQgbt1IdQV0Pq6bV4fZvKxky002rNWU4gr'
+STRIPE_PUB_KEY = 'STRIPE_PUB_TEST_KEY'
 
 
 MIDDLEWARE = [
@@ -192,5 +192,5 @@ SECURE_FRAME_DENY = False
 
 AWS_GROUP_NAME = "tudo-ecommerce-group"
 AWS_USERNAME = "tudo-ecommerce-user"
-AWS_ACCESS_KEY_ID = "AKIAVHW2MS7PFNXB3QVZ"
-AWS_SECRET_KEY = "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"
+AWS_ACCESS_KEY_ID = "AWS_ACCESS_TEST_KEY_ID"
+AWS_SECRET_KEY = "AWS_SECRET_TEST_KEY"
